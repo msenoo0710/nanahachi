@@ -1,0 +1,307 @@
+@charset "utf-8";
+@import "../00_base/value";
+/* /////////////////////////////////////////////////////////
+  トップページ
+///////////////////////////////////////////////////////// */
+
+/* ======================
+ページコンテンツ
+====================== */
+.page--home {
+  .mainvisual {
+    position: relative;
+    overflow: hidden;
+    height: 100svh;
+    &__wrap {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(black, .35);
+    }
+    &__heading{
+      opacity: 0;
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      z-index: 4;
+      padding-top: 80px;
+      @include smartphone{
+        padding-top: 40px 0 0;
+      }
+      p {
+        @include fontSize($fs_min:28, $fs_max:38);
+        font-weight: 400;
+        color: white;
+        writing-mode: vertical-rl;
+      }
+    }
+    &__content {
+      @include makeContainer($mx:1000px, $pd_pc:80px 60px 0, $pd_tb:80px 60px 0, $pd_sp:40px 0 0);
+      opacity: 0;
+      position: absolute;
+      z-index: 5;
+      p {
+        @include fontSize($fs_min:18, $fs_max:24);
+        line-height: 2.2;
+        font-weight: 400;
+        color: white;
+      }
+    }
+    &__background {
+      &--slider{
+        img{
+          width: 100%;
+          height: 100svh;
+          object-fit: cover;
+        }
+      }
+      &--video {
+        video {
+          position: absolute;
+          z-index: -1;
+          top: 50%;
+          left: 50%;
+          min-width: 100%;
+          min-height: 100%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+    .fade-in { opacity: 1; transition: opacity 1s ease-in-out; }
+  }
+
+  .guidelines{
+    @include makeContainer($mx:1420px, $pd_pc:180px 60px, $pd_tb:180px 60px, $pd_sp:120px 20px);
+    &__wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+      @include smartphone{
+        gap: 40px;
+      }
+    }
+    &__heading{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      text-align: center;
+
+      i {
+        font-family: 'Oswald';
+        @include fontSize($fs_min:50, $fs_max:160);
+        font-weight: 700;
+        line-height: 1;
+        color: $mainColor;
+      }
+
+      h2 {
+        @include fontSize($fs_min:14, $fs_max:24);
+        font-weight: 700;
+      }
+    }
+    &__content{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      @include smartphone{
+        grid-template-columns: 1fr;
+      }
+      section{
+        @include flex-gap(20px, $direction: column);
+        h2{
+          @include fontSize($fs_min:16, $fs_max:24);
+          text-align: center;
+          color: white;
+          background-color: $mainColor;
+          line-height: 1.8;
+          border-radius: 50px 3px;
+        }
+        div{
+          @include flex-gap(20px, $direction: column);
+        }
+        h3{
+          @include fontSize($fs_min:14, $fs_max:24);
+          text-align: center;
+        }
+        .table.type2{
+          thead{
+            th{
+              &:nth-of-type(1){
+                width: 45%;
+              }
+              &:nth-of-type(2){
+                width: 25%;
+                text-align: center;
+              }
+              &:nth-of-type(3){
+                width: 25%;
+                text-align: center;
+              }
+            }
+          }
+          tbody{
+            td{
+              &:nth-of-type(2){
+                text-align: center;
+              }
+              &:nth-of-type(3){
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .overview{
+    @include makeContainer($mx:1420px, $pd_pc:150px 60px, $pd_tb:150px 60px, $pd_sp:120px 40px);
+    &__wrap{
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      @include smartphone {
+        gap: 0;
+      }
+    }
+    &__heading{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      padding: 0 60px;
+      @media(max-width:1000px){
+        padding: 0 20px;
+      }
+
+      i {
+        font-family: 'Oswald';
+        @include fontSize($fs_min:80, $fs_max:160);
+        font-weight: 700;
+        line-height: 1;
+        color: $mainColor;
+      }
+
+      h2 {
+        @include fontSize($fs_min:16, $fs_max:24);
+        font-weight: 700;
+      }
+    }
+    &__content{
+      display: grid;
+      grid-template-columns: auto 1fr;
+      @media(max-width:1000px){
+        grid-template-columns: 1fr;
+      }
+      &--description{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0 60px;
+        gap: 20px;
+        width: 100%;
+        height: 100%;
+        @media(max-width:1000px){
+          padding: 20px;
+          gap: 10px;
+          flex-direction: column;
+          height: auto;
+        }
+        h3{
+          @include fontSize($fs_min:24, $fs_max:40);
+          font-weight: 400;
+          color: white;
+          line-height: 1;
+          writing-mode: vertical-rl;
+          background-color: $mainColor;
+          padding: 20px;
+          display: inline-block;
+          @media(max-width:1000px){
+            writing-mode: unset;
+          }
+        }
+        p{
+          @include fontSize($fs_min:14, $fs_max:24);
+          font-weight: 400;
+          writing-mode: vertical-rl;
+          @media(max-width:1000px){
+            writing-mode: unset;
+            line-height: 2;
+          }
+        }
+      }
+      &--background{
+        figre{
+          img{
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 10 / 5;
+            object-fit: cover;
+            @media(max-width:1000px){
+              aspect-ratio: 10 / 10;
+            }
+          }
+        }
+      }
+    }
+    &:nth-child(odd){
+      grid-template-columns: 1fr auto;
+      .overview__heading{
+        align-items: flex-end;
+      }
+      .overview__content--description{
+        @media(max-width:1000px){
+          flex-direction: column;
+        }
+        @include screen{
+          order: 2;
+          flex-direction: row-reverse;
+        }
+      }
+      .overview__content--background{
+        @include screen{
+          order: 1;
+        }
+      }
+    }
+  }
+
+  .news{
+    &__wrap{
+      @include makeContainer($mx:1320px, $pd_pc:80px 60px, $pd_tb:80px 60px, $pd_sp:60px 15px);
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    &__heading {
+      display: flex;
+      flex-direction: column;
+
+      i {
+        @include fontSize($fs_min:45, $fs_max:110);
+        font-family: Oswald;
+        font-weight: 700;
+        line-height: 1;
+        color: black;
+      }
+      h2 {
+        @include fontSize($fs_min:14, $fs_max:24);
+        font-weight: 700;
+        color: black;
+      }
+    }
+    &__content{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+}
