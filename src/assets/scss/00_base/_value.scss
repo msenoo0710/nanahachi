@@ -7,9 +7,9 @@
 /*====================================
   カラー
 =====================================*/
-$color1:#bb8d1b; //青
+$color1:#352100; //青
 $color2:#FFF; //白
-$color3:#333; //黒
+$color3:#352100; //黒
 $color4: #F4F4F4; //薄いグレー
 $color5: #E6E6E6; //グレー
 $color6: #E6E6E6; //グレー
@@ -32,8 +32,8 @@ $imgPath:'../images';
   フォント
 =====================================*/
 // "Noto Sans JP" sans-serif
-$baseFont: "Hina Mincho", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ", "Meiryo","ＭＳ Ｐゴシック", "Helvetica Neue", "Helvetica", "Arial", serif;
-$serif: "Noto Serif JP", "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "游明朝", YuMincho, "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+$baseFont: "Hannari", serif;
+$serif: "Noto Serif JP", serif;
 
 //フォントサイズ
 $PCfontSize:1.6rem;

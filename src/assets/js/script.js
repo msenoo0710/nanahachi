@@ -27,6 +27,29 @@
       });
     });
 
+    // ページトップに戻るボタン位置調整
+    const $pagetop = $('.footer__pagetop'); // ページトップボタン
+    const $footer = $('.footer__info'); // フッター要素
+    const stopBottom = 100; // 一番下で止めたい位置（画面下から100px）
+  
+    $(window).on('scroll resize', function () {
+      const scrollTop = $(window).scrollTop();
+      const windowHeight = $(window).height();
+      const docHeight = $(document).height();
+      const footerTop = $footer.offset().top;
+  
+      const distanceToBottom = docHeight - (scrollTop + windowHeight);
+  
+      if (scrollTop + windowHeight >= footerTop) {
+        // フッターに到達したら bottom を 100px に固定
+        $pagetop.css('bottom', `${stopBottom}px`);
+      } else {
+        // それ以外は初期値（例: 30px）
+        $pagetop.css('bottom', `30px`);
+      }
+    });
+    
+
     // マウスホバーで子メニューを表示する
     $('.header__nav .child').hover(function() {
       // マウスが要素に入った時の処理
