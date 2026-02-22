@@ -1,0 +1,133 @@
+@charset "utf-8";
+@import "../00_base/value";
+/* ///////////////////////////////////////////
+  layout.scss
+  全体のレイアウトに関する記述
+/////////////////////////////////////////// */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  word-wrap: break-word;
+  font-size: 62.5%;
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: $baseFont;
+  color: $fontColor;
+  background-color: #f8f7f2;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  @include smartphone {
+    font-size: $SPfontSize;
+    line-height: $splh;
+  }
+  @include screen {
+    font-size: $PCfontSize;
+    line-height: $pclh;
+  }
+}
+
+h1, h2, h3, h4, h5, h6,
+table, tr, td, th,
+ol, ul, li,
+dl, dt, dd,
+p {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 100%;
+  list-style: none;
+}
+
+i, em { font-style: normal; }
+
+img {
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  max-width:100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+figure {
+  display: block;
+  margin: 0;
+}
+
+a, *:focus { outline: none; }
+
+*::selection { background: $mainColor; color: #FFF; }
+*::-moz-selection { background: $mainColor; color: #FFF; }
+
+.hide { display: none !important; }
+.hideSP { @include smartphone { display: none !important; } }
+.hideTL { @include tablet { display:none !important; } }
+.hideDT { @include desktop { display:none !important; } }
+.hidePC { @include screen { display: none !important; } }
+
+
+main {
+  margin: 0 auto;
+}
+
+a {
+  outline: none;
+  *:focus{
+    outline: 0;
+  }
+  &:link { color:$fontColor; }
+  &:visited { color:$fontColor; }
+  &:hover {
+    color:$fontColor;
+    text-decoration: none;
+  }
+  &:active { color:$fontColor; }
+}
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+
+.js-fadeUp {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s, transform 1s;
+}
+.js-fadeIn{
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.opening {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  img{
+    width: 150px;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+}

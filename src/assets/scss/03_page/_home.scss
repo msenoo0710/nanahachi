@@ -1,0 +1,346 @@
+@charset "utf-8";
+@import "../00_base/value";
+/* /////////////////////////////////////////////////////////
+  トップページ
+///////////////////////////////////////////////////////// */
+
+.page--home {
+  display: flex;
+  flex-direction: column;
+
+
+  .intro {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+
+    &__company {
+      writing-mode: vertical-rl;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: 4em;
+
+      @include smartphone {
+        padding-top: 1em;
+      }
+
+      .ja {
+        display: flex;
+        flex-direction: column;
+        order: 2;
+
+        span {
+          &:nth-of-type(1) {
+            @include fontSize($fs_min:20, $fs_max:40);
+          }
+
+          &:nth-of-type(2) {
+            @include fontSize($fs_min:35, $fs_max:70);
+            margin-top: 0.5em;
+            line-height: 1.2;
+          }
+        }
+      }
+
+      .en {
+        @include fontSize($fs_min:12, $fs_max:20);
+        order: 1;
+        color: #aaa;
+        margin-top: 1rem;
+        transform: rotate(180deg);
+        display: inline-block; // transform を効かせるため
+      }
+    }
+  }
+
+
+  .mainvisual {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    gap: 4rem;
+
+    @include smartphone {
+      flex-direction: column;
+      height: auto;
+      gap: 2rem;
+    }
+
+    // アニメーション用設定
+    &__left,
+    &__center,
+    &__right {
+      opacity: 0;
+    }
+
+    &__left,
+    &__right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include smartphone {
+        width: 100%;
+      }
+
+      @include tablet {
+        width: 20vw;
+      }
+
+      @include desktop {
+        width: 25vw;
+      }
+    }
+
+    &__center {
+      overflow: hidden;
+      will-change: transform, opacity;
+      height: 100%;
+
+      @include smartphone {
+        width: 100%;
+      }
+
+      @include tablet {
+        width: 60vw;
+      }
+
+      @include desktop {
+        width: 50vw;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    &__company {
+      writing-mode: vertical-rl;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: auto;
+      padding-top: 4em;
+
+      @include smartphone {
+        padding-top: 1em;
+      }
+
+      .ja {
+        display: flex;
+        flex-direction: column;
+        order: 2;
+
+        span {
+          &:nth-of-type(1) {
+            @include fontSize($fs_min:20, $fs_max:40);
+          }
+
+          &:nth-of-type(2) {
+            @include fontSize($fs_min:35, $fs_max:70);
+            margin-top: 0.5em;
+            line-height: 1.2;
+          }
+        }
+      }
+
+      .en {
+        @include fontSize($fs_min:12, $fs_max:20);
+        order: 1;
+        color: #aaa;
+        margin-top: 1rem;
+        transform: rotate(180deg);
+        display: inline-block; // transform を効かせるため
+      }
+    }
+
+    &__catch {
+      writing-mode: vertical-rl;
+      @include fontSize($fs_min:35, $fs_max:70);
+      color: #3a2e00;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+
+      span {
+        &:nth-of-type(2) {
+          margin-top: 1.0em;
+        }
+
+        &:nth-of-type(3) {
+          margin-top: 4em;
+        }
+      }
+    }
+  }
+
+
+  .section {
+    display: grid;
+
+    @include smartphone {
+      grid-template-columns: 1fr;
+      margin-top: 3rem;
+      gap: 1rem;
+    }
+
+    @include tablet {
+      grid-template-columns: 2fr 1.5fr;
+      margin-top: 10rem;
+      gap: 1rem;
+    }
+
+    @include desktop {
+      grid-template-columns: 2fr 1fr;
+      margin-top: 10rem;
+      gap: 2rem;
+    }
+
+    &__img {
+      order: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .slick-slide{
+        display: flex;
+        justify-content: center;
+      }
+
+      img {
+        height: auto;
+        object-fit: contain;
+
+        @include smartphone {
+          width: 100%;
+        }
+
+        @include tablet {
+          width: 100%;
+        }
+
+        @include desktop {
+          width: 80%;
+        }
+      }
+    }
+
+    &__text {
+      order: 2;
+      padding: 4rem 8rem 4rem 4rem;
+
+      @include smartphone {
+        padding: 4rem;
+      }
+
+      h2 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 400px;
+
+        @include smartphone {
+          max-width: 100%;
+        }
+
+        i {
+          @include fontSize($fs_min:20, $fs_max:30);
+          border-bottom: 1px solid #000;
+        }
+
+        span {
+          @include fontSize($fs_min:30, $fs_max:50);
+          margin-left: auto;
+        }
+      }
+
+      p {
+        @include fontSize($fs_min:16, $fs_max:20);
+        padding: 4rem 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 3rem;
+
+        @include smartphone {
+          flex-direction: column;
+          padding: 4rem 0;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      @include smartphone {
+        grid-template-columns: 1fr;
+        margin-top: 5rem;
+        gap: 1rem;
+      }
+
+      @include tablet {
+        grid-template-columns: 1.5fr 2fr;
+        margin-top: 10rem;
+        gap: 1rem;
+      }
+
+      @include desktop {
+        grid-template-columns: 1fr 2fr;
+        margin-top: 10rem;
+        gap: 2rem;
+      }
+
+      // コンテンツの順序を入れ替える
+      .section__img {
+        order: 2;
+
+        @include smartphone {
+          order: 1;
+        }
+      }
+
+      .section__text {
+        order: 1;
+        padding: 4rem 4rem 4rem 8rem;
+
+        @include smartphone {
+          order: 2;
+          padding: 4rem;
+        }
+      }
+    }
+  }
+
+  .js-slider {
+    position: relative;
+  
+    > div {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: none;
+  
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+    }
+  
+    > div:first-child {
+      position: relative;
+    }
+  }
+  
+  
+
+}
